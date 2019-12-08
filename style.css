@@ -1,0 +1,18 @@
+html {
+    background-image: url("frame.png");
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+    background-color:#8f4ec4;
+    height: 100%;
+}
+
+h2 {
+font-family: 'Permanent Marker', cursive;
+color: white;
+}
+
+p {
+font-family: 'Raleway', sans-serif;
+color: white; 
+}
