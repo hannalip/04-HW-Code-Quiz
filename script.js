@@ -93,3 +93,25 @@ var questions = [
     answer: "THE REMBRANDTS"
     }, 
 ];
+
+
+//TIMER
+
+var timeEl = document.getElementById("timer");
+
+
+var secondsLeft = 100;
+
+function setTime() {
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = "Time:" + " " + secondsLeft;
+
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      sendMessage();
+    }
+
+  }, 1000);
+}
+setTime();
