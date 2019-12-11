@@ -21,7 +21,7 @@ Quiz Quesions:
  - JOSEPH TRIBIANI
 
 4. What is Phoebe’s twin sister’s name?
-- URSULA BUFFAY*
+- URSULA BUFFAY
 - LESLIE BUFFAY
 - CHRISSY BUFFAY
 - REGINA PHALANGE

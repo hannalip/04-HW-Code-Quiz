@@ -1,3 +1,8 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Permanent Marker', cursive;
+    font-family: 'Raleway', sans-serif;
+  }
 html {
     background-image: url("frame.png");
     background-repeat: no-repeat;
@@ -7,12 +12,43 @@ html {
     height: 100%;
 }
 
-h2 {
-font-family: 'Permanent Marker', cursive;
-color: white;
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
 
-p {
-font-family: 'Raleway', sans-serif;
-color: white; 
+.container {
+    width: 500px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px 2px;
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.btn {
+   border: 1px solid;
+   padding: 5px 10px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    display: none;
 }
