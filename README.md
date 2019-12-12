@@ -1,7 +1,7 @@
 # 04-HW-Code-Quiz
 
-* [`Git Hub](https://github.com/hannalip/03-HW-Password-Generator)
-* [Git Hub](https://hannalip.github.io/03-HW-Password-Generator/)
+* [`Git Hub](hhttps://github.com/hannalip/04-HW-Code-Quiz)
+* [Git Hub IO](https://hannalip.github.io/04-HW-Code-Quiz/./)
 * [`HTML`](index.html)
 * [`JavaScript`](script.js)
 * [`Quesrtions`](question.js)

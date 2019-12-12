@@ -1,6 +1,4 @@
 
-
-console.log(questions)
 // function dynamicallyLoadScript(url) {
 //     var script = document.createElement("questions-script");  // create a script DOM node
 //     questions.src = url;  // set its src to the provided URL
@@ -18,7 +16,7 @@ var shuffleQuestion
 var tagP = document.getElementsByTagName('p')
 var tagH2 = document.getElementsByTagName('h2')
 var rightOrWrongEl = document.getElementById("rightOrWrong")
-
+var myScore= "SCORE: " + timeEl;
 
 
 startButton.addEventListener('click', startGame)
@@ -45,13 +43,17 @@ function setNextQuestion() {
 }
 
 function endQuiz() {
+    console.log("timer" + secondsLeft)
     clearInterval(timerInterval);
-    $(questionElement).empty();
-    $(rightOrWrongEl).empty();
+    // $(questionElement).empty();
+    $("rightOrWrong").empty();
+    $(answerButton).empty();
+    
+    $(questionElement).html("All Done!" + " " + "Your Score: " + secondsLeft)
 
-    var endscreenEl = document.getElementById("results")
-    var finalScoreEl = document.getElementById("results")
-    endscreenEl = timeEl;
+    // var endscreenEl = document.getElementById("results")
+    // var finalScoreEl = document.getElementById("results")
+    // endscreenEl = timeEl;
   
 // if (intials !=== "")
 // JSON.parse(window)
@@ -66,7 +68,6 @@ function endQuiz() {
 
 function showQuestion(question) {
     questionElement.innerText = question.question;
-
     for (var i = 0; i < question.choices.length; i++) {
         var element = document.createElement("button");
         $(element).addClass("btn");
@@ -75,6 +76,7 @@ function showQuestion(question) {
         element.addEventListener("click", checkAnswer)
         answerButton.append(element)
     }
+  
 
 }
 
@@ -83,14 +85,14 @@ function checkAnswer() {
     endQuiz();
     }
   
-    console.log(this.value)
-    console.log((shuffleQuestion[currentQuestionIndex].answer))
+    
+   
     if (this.value == shuffleQuestion[currentQuestionIndex].answer) {
     $("#rightOrWrong").html("Correct!")
         currentQuestionIndex++
         setNextQuestion();
     } else {
-        console.log(secondsLeft)
+    
         secondsLeft = secondsLeft - 10;
         timeEl.textContent = "Time:" + " " + secondsLeft;
         $("#rightOrWrong").html("Wrong!")
@@ -99,12 +101,7 @@ function checkAnswer() {
     }
 }
 
-function scoreKeeper(){
-    var resultsEl = document.createElement("div");
-        resultsEl.setAttribute("div", "images/image_1.jpg")
-        questionElement.appendChild(resultsEl);
-      
-  }
+
 
 
 
@@ -125,12 +122,14 @@ function setTime() {
         secondsLeft--;
         timeEl.textContent = "Time:" + " " + secondsLeft;
 
-        if (secondsLeft === 0) {
+        if (secondsLeft <= 0) {
           endQuiz()
         }
 
     }, 1000);
+   
 }
+
 
 
 // // submitBTn.onclick = saveHighscore;
