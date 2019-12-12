@@ -15,7 +15,7 @@ var count = 0;
 var shuffleQuestion
 var tagP = document.getElementsByTagName('p')
 var tagH2 = document.getElementsByTagName('h2')
-var rightOrWrongEl = document.getElementById("rightOrWrong")
+var rightOrWrongEl = document.getElementById('rightOrWrong')
 var myScore= "SCORE: " + timeEl;
 
 
@@ -45,11 +45,16 @@ function setNextQuestion() {
 function endQuiz() {
     console.log("timer" + secondsLeft)
     clearInterval(timerInterval);
-    // $(questionElement).empty();
-    $("rightOrWrong").empty();
+    $(rightOrWrongEl).empty();
     $(answerButton).empty();
-    
-    $(questionElement).html("All Done!" + " " + "Your Score: " + secondsLeft)
+    $(questionElement).html("All Done!" + " " + "Your Score: " + secondsLeft);
+}
+function initalsFunction() {
+    var intials = document.createElement("input");
+    intials.setAttribute("type", "text");
+    intials.setAttribute("value", "Enter your Initals");
+    document..appendChild(intials);
+
 
     // var endscreenEl = document.getElementById("results")
     // var finalScoreEl = document.getElementById("results")
@@ -64,7 +69,7 @@ function endQuiz() {
 //     score :timeEl,
 //     initals: initals
 // }
-}
+
 
 function showQuestion(question) {
     questionElement.innerText = question.question;
