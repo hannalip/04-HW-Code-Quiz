@@ -42,19 +42,22 @@ function setNextQuestion() {
     // console.log(showQuestion(shuffleQuestion[currentQuestionIndex]))
 }
 
+function initalsFunction() {
+    var intials = document.createElement("input");
+    intials.setAttribute("type", "text");
+    intials.setAttribute("value", "Enter your Initals");
+    rightOrWrongEl.append(intials);
+
+}
+
 function endQuiz() {
     console.log("timer" + secondsLeft)
     clearInterval(timerInterval);
     $(rightOrWrongEl).empty();
     $(answerButton).empty();
     $(questionElement).html("All Done!" + " " + "Your Score: " + secondsLeft);
+    initalsFunction();
 }
-function initalsFunction() {
-    var intials = document.createElement("input");
-    intials.setAttribute("type", "text");
-    intials.setAttribute("value", "Enter your Initals");
-    document..appendChild(intials);
-
 
     // var endscreenEl = document.getElementById("results")
     // var finalScoreEl = document.getElementById("results")
