@@ -1,96 +1,40 @@
 # 04-HW-Code-Quiz
 
-Quiz Quesions:
+* [`Git Hub](https://github.com/hannalip/03-HW-Password-Generator)
+* [Git Hub](https://hannalip.github.io/03-HW-Password-Generator/)
+* [`HTML`](index.html)
+* [`JavaScript`](script.js)
+* [`Quesrtions`](question.js)
+* [`CSS`](style.css)
+* [`Background`](frame.png)
 
-1. On which soap opera does Joey have a recurring role as Dr. Drake Ramoray?
- - Days of Our Lives*
- - All My Children
- - General Hospital 
- - The Bold and the Beautiful
+In this assignment, I am going to create a Quiz using JavaScript
 
- 2. How many categories for towels does Monica have?
- - 12
- - 20
- - 11*
- - 8
+## Instructions
 
- 3. To whom is Joey and Chandler’s TV Guideaddressed?
- - MR. CHANDELIER BANG
- - MISS CHANANDLER BONG*
- - MS. JOESPHINE TRIBECA
- - JOSEPH TRIBIANI
+* In a file called `questions.js`
 
-4. What is Phoebe’s twin sister’s name?
-- URSULA BUFFAY
-- LESLIE BUFFAY
-- CHRISSY BUFFAY
-- REGINA PHALANGE
+  1. I created an array of questions with choices and the answer.
 
-5. What color is the couch that the friends sit on at Central Perk?
-- GREEN
-- RED
-- ORANGE*
-- BROWN
- 
- 6. What is the name of Joey and Chandler’s pet duck?
- - BRUCE
- - MELVIN
- - DUCK
- - MARCEL
 
- 7. Where were the opening credits filmed?
- - BROOKYN, NY
- - NEW YORK CITY, NY
- - BURBANK, CA*
- - LOS ANGELES, CA
+### Elements within Javascript file
 
- 8. What was the name of the barista-turned-manager of Central Perk?
- - TYLER
- - GUNTHER*
- - BOBBY
- - MICHAEL
+  * variables
 
- 9. Who was the only cast member to get snubbed by the Emmy’s?
- - DAVID SCHWIMMER
- - LISA KUDROW
- - MATTHEW PERRY
- - COURTNEY COX*
+  * prompts/confirms
 
- 10. Who sings the theme song?
- - R.E.M
- - THE CAST
- - THE REMBRANDTS*
- - THE B-52'S
+  * IF/ELSE statements
 
- 11. Who are the creators of Friends?
- - MATT WILLIAMS & DAVID MCFADZEAN
- - MARTA KAUFFMAN & DAVID CRANE*
- - DAVID ANGELL & PETER CASEY
- - LARRY DAVID & JEFF SCHAFFER
+  * For Loop 
 
- 12. Monica briefly dates billionaire Pete Becker. Which country does he take her for their first date?
-- France
-- England
-- Italy*
-- Greece
+  * Math and math.floor
 
-13. When Ross and Rachel were“on a break,"Ross slept with Chloe. Where does she work?
-- Xerox
-- Microsoft
-- Pizza Shop
-- Central Perk
+  * Event Listener
 
-14. Monica and Chandler met on Thanksgiving in 1987. She pursued her career as a chef because Chandler complimented her on which dish?
-- Green Bean Casserole
-- Meatloaf
-- Stuffing
-- Macaroni and Cheese
+  * Functions
 
-15. How many roses does Ross send to Emily?
-- 72
+  * jQuery
 
-16. Who was Rachel supposed to marry in the pilot episode?
-- Paolo
-- Barry
-- Ross
-- Chip
+* **NOTE:** Use your CSS file to add own creativity
+
+

@@ -12,18 +12,15 @@
 </head>
 
 <body>
-  <p id="timer" class="timer">timer</p>
+  <p id="timer" class="timer">Time</p>
+  <a href="">ViewHighscores</a>
   <span>
     <div class="container" id=wrapper>
-      <!-- <h2>F.R.I.E.N.D.S Quiz Challenge</h2>
-    <p>'Friends' had us glued to our TV screens for a decade. Are you the biggest fan?</p> -->
+      <h2>F.R.I.E.N.D.S Quiz</h2>
       <div id="question-container" class="hide">
         <div id="question">Question</div>
         <div id="answer-button" class="btn-grid">
-          <button class="btn">Answer 1</button>
-          <button class="btn">Answer 2</button>
-          <button class="btn">Answer 3</button>
-          <button class="btn">Answer 4</button>
+       
         </div>
       </div>
 
@@ -31,13 +28,18 @@
         <button id="start-btn" class="start-btn btn">Start Quiz</button>
         <button id="next-btn" class="next-btn btn hide">Next</button>
       </div>
+      <div id="rightOrWrong"></div>
 
       <div id="results"></div>
     </div>
   </span>
 
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"></script>
   <script src="./questions.js"></script>
   <script src="./script.js"></script>
+
 
 
 </body>

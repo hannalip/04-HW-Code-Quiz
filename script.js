@@ -1,98 +1,114 @@
-var questions = []
-var scores = 0;
 
-function dynamicallyLoadScript(url) {
-    var script = document.createElement("questions-script");  // create a script DOM node
-    questions.src = url;  // set its src to the provided URL
 
-    document.body.appendChild(questions-script);  // add it to the end of the head section of the page (could change 'head' to 'body' to add it to the end of the body section instead)
-}
+console.log(questions)
+// function dynamicallyLoadScript(url) {
+//     var script = document.createElement("questions-script");  // create a script DOM node
+//     questions.src = url;  // set its src to the provided URL
+
+//     document.body.appendChild(questions-script);  // add it to the end of the head section of the page (could change 'head' to 'body' to add it to the end of the body section instead)
+// }
 
 var startButton = document.getElementById('start-btn');
 var questionContainer = document.getElementById('question-container')
 var questionElement = document.getElementById('question')
 var answerButton = document.getElementById('answer-button')
+var timerInterval;
+var count = 0;
+var shuffleQuestion
+var tagP = document.getElementsByTagName('p')
+var tagH2 = document.getElementsByTagName('h2')
+var rightOrWrongEl = document.getElementById("rightOrWrong")
 
-let shuffleQuestion, currentQuestionIndex
+
 
 startButton.addEventListener('click', startGame)
 
 function startGame() {
-console.log('Started')
-startButton.classList.add('hide')
-shuffleQuestion = questions.sort(() => Math.random() - .5)
-currentQuestionIndex = 0
-questionContainer.classList.remove('hide')
-setNextQuestion()
+    shuffleQuestion = questions.sort(() => Math.random() - .5)
+    startButton.classList.add('hide')
+    currentQuestionIndex = 0
+    questionContainer.classList.remove('hide')
+
+    setNextQuestion(shuffleQuestion);
 };
 
+
 function setNextQuestion() {
+    count++;
+
+    
+   
+   $(answerButton).empty();
     showQuestion(shuffleQuestion[currentQuestionIndex])
+    // console.log(currentQuestionIndex);
+    // console.log(showQuestion(shuffleQuestion[currentQuestionIndex]))
 }
 
-function showQuestion (question) {
-    questionElement.innerText = question.question
+function endQuiz() {
+    clearInterval(timerInterval);
+    $(questionElement).empty();
+    $(rightOrWrongEl).empty();
+
+    var endscreenEl = document.getElementById("results")
+    var finalScoreEl = document.getElementById("results")
+    endscreenEl = timeEl;
+  
+// if (intials !=== "")
+// JSON.parse(window)
+// localStorage.setItem("highScores", JSON.stringify(highScores));
+// window.location.assign("/");
+
+// car newScore = {
+//     score :timeEl,
+//     initals: initals
+// }
 }
 
+function showQuestion(question) {
+    questionElement.innerText = question.question;
 
-function selectAnswer() {
+    for (var i = 0; i < question.choices.length; i++) {
+        var element = document.createElement("button");
+        $(element).addClass("btn");
+        element.value = question.choices[i];
+        element.innerText = question.choices[i];
+        element.addEventListener("click", checkAnswer)
+        answerButton.append(element)
+    }
 
 }
 
+function checkAnswer() {
+    if (count === 10){
+    endQuiz();
+    }
+  
+    console.log(this.value)
+    console.log((shuffleQuestion[currentQuestionIndex].answer))
+    if (this.value == shuffleQuestion[currentQuestionIndex].answer) {
+    $("#rightOrWrong").html("Correct!")
+        currentQuestionIndex++
+        setNextQuestion();
+    } else {
+        console.log(secondsLeft)
+        secondsLeft = secondsLeft - 10;
+        timeEl.textContent = "Time:" + " " + secondsLeft;
+        $("#rightOrWrong").html("Wrong!")
+        currentQuestionIndex++
+        setNextQuestion();
+    }
+}
 
-// QUESTIONS
-var questions = [
-    {
-    question: "On which soap opera does Joey have a recurring role as Dr. Drake Ramoray?",
-    choices: ["Days of Our Lives", "All My Children", "General Hospital", "The Bold and the Beautiful"],
-    answer: "Days of Our Lives"
-    },
-    {
-    question: "How many categories for towels does Monica have?",
-    choices: ["12", "20", "11", "8"],
-    answer: "11"
-    },
-    {
-    question: "To whom is Joey and Chandler’s TV Guideaddressed?",
-    choices: ["MR. CHANDELIER BANG", "MISS CHANANDLER BONG", "MS. JOESPHINE TRIBECA", "JOSEPH TRIBIANI"],
-    answer: "MISS CHANANDLER BONG"
-    },
-    {
-    question: "What is Phoebe’s twin sister’s name?",
-    choices: ["URSULA BUFFAY", "LESLIE BUFFAY", "CHRISSY BUFFAY", "REGINA PHALANGE"],
-    answer: "URSULA BUFFAY"
-    },
-    {
-    question: "What color is the couch that the friends sit on at Central Perk?",
-    choices: ["Green", "Red", "Orange", "Brown"],
-    answer: "Orange"
-    },
-    {
-    question: "What is the name of Joey and Chandler’s pet duck?",
-    choices: ["Bruce", "Melvin", "Duck", "Marcel"],
-    answer: "Duck"
-    },
-    {
-    question: "Where were the opening credits filmed?",
-    choices: ["BROOKYN, NY", "NEW YORK CITY, NY", "BURBANK, CA", "LOS ANGELES, CA"],
-    answer: "BURBANK, CA"
-    },
-    {
-    question: "What was the name of the barista-turned-manager of Central Perk?",
-    choices: ["Tyler", "Gunther", "Bobby", "Michael"],
-    answer: "Gunther"
-    },
-    {
-    question: "Who was the only cast member to get snubbed by the Emmy’s?",
-    choices: ["David Schwimer", "Lisa Kudrow", "Matthew Perry", "Cortney Cox"],
-    answer: "Cortney Cox"
-    },  
-    {
-    question: "Who sings the theme song?",
-    choices: ["R.E.M", "THE CAST", "THE REMBRANDTS", "THE B-52'S"],
-    answer: "THE REMBRANDTS"
-    }, 
-];
+function scoreKeeper(){
+    var resultsEl = document.createElement("div");
+        resultsEl.setAttribute("div", "images/image_1.jpg")
+        questionElement.appendChild(resultsEl);
+      
+  }
+
+
+
+
 
 
 //TIMER
@@ -102,16 +118,21 @@ var timeEl = document.getElementById("timer");
 
 var secondsLeft = 100;
 
+startButton.addEventListener('click', setTime);
+
 function setTime() {
-  var timerInterval = setInterval(function() {
-    secondsLeft--;
-    timeEl.textContent = "Time:" + " " + secondsLeft;
+    timerInterval = setInterval(function () {
+        secondsLeft--;
+        timeEl.textContent = "Time:" + " " + secondsLeft;
 
-    if(secondsLeft === 0) {
-      clearInterval(timerInterval);
-      sendMessage();
-    }
+        if (secondsLeft === 0) {
+          endQuiz()
+        }
 
-  }, 1000);
+    }, 1000);
 }
-setTime();
+
+
+// // submitBTn.onclick = saveHighscore;
+// intalEnt.onkeyup = check for enter
+
